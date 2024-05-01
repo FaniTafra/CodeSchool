@@ -1,18 +1,35 @@
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import '../App.css'
+import { useState } from 'react';
 
 function Navbar() {
+
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    const handleToggleChange = () => {
+        const newValue = !isAdmin;
+        setIsAdmin(newValue);
+        onToggleSwitchChange(newValue);
+    };
 
     return (
         <nav className="navbar">
             <ul>
                 <li><Link to="/">Radionice</Link></li>
                 <li><Link to="/predavaci">Predavaci</Link></li>
-                <li><Link to="/administracija">Administracija</Link></li>
+                {isAdmin && <li><Link to="/administracija">Administracija</Link></li>}
             </ul>
             <div className="admin-section">
-                <label htmlFor="toggle">Admin</label>
-                <button id="toggle" className="toggle-button"></button>
+            <Form>
+                <Form.Check
+                    type="switch"
+                    id="custom-switch"
+                    label="Admin"
+                    checked={isAdmin}
+                    onChange={handleToggleChange}
+                />
+            </Form>
             </div>
         </nav>
     )

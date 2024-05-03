@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import '../App.css'
-import { useState } from 'react';
+import { useAdminContext } from './AdminContext';
 
 function Navbar() {
 
-    const [isAdmin, setIsAdmin] = useState(false);
+    const {isAdmin, toggleAdminStatus} = useAdminContext();
 
     const handleToggleChange = () => {
-        const newValue = !isAdmin;
-        setIsAdmin(newValue);
-        onToggleSwitchChange(newValue);
+        toggleAdminStatus();
     };
 
     return (

@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Administracija from './components/Administracija.jsx'
 import Predavaci from './components/Predavaci.jsx'
 import Radionice from './components/Radionice.jsx'
+import { AdminProvider } from './components/AdminContext.jsx'
 import './index.css'
 import {
   RouterProvider,
@@ -34,8 +35,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-      <App/>
-    </RouterProvider>
+    <AdminProvider>
+      <RouterProvider router={router}>
+        <App/>
+      </RouterProvider>
+    </AdminProvider>
   </React.StrictMode>
 )

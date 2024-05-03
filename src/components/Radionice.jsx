@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Checkbox from './Checkbox.jsx'
+import axios from "axios"
+import WorkshopCard from "./WorkshopCard.jsx";
 
 function Radionice() {
   const themes = ["React", "Express", "PHP", "WordPress"];
   const levels = ["Junior", "Mid", "Senior"];
+  const [radionice, postaviRadionice] = useState([])
 
   const [checkedThemes, setCheckedThemes] = useState(
     new Array(themes.length).fill(false)
@@ -27,6 +30,21 @@ function Radionice() {
     setCheckedLevels(updatedCheckedState);
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/radionice/")
+      .then(res => postaviRadionice(res.data));
+  }, []);
+
+  const SignIn = (id, updatedBrojPrijava) => {
+    axios.patch(`http://localhost:3001/radionice/${id}`, { broj_prijava: updatedBrojPrijava })
+      .then(() => {
+        axios.get("http://localhost:3001/radionice/")
+          .then(res => postaviRadionice(res.data));
+      });
+  };
+
+
   return (
     <>
       <Checkbox
@@ -42,6 +60,11 @@ function Radionice() {
         checkedItems={checkedLevels}
         handleOnChange={handleLevelOnChange}
       />
+      </div>
+      <div>
+        {radionice.map(r => (
+          <WorkshopCard key={r.id} rez={r} SignInWork={SignIn}/>
+        ))}
       </div>
     </>
   )

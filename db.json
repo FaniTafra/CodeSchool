@@ -21,14 +21,14 @@
       "broj_prijava": 0
     },
     {
-      "id": "Fani Tafra",
-      "ime": "Fani Tafra",
-      "datum": "2024-05-07T22:00:00.000Z",
+      "id": "test filter",
+      "ime": "test filter",
+      "datum": "2024-05-21T22:00:00.000Z",
       "predavac": [
         "Predavac 1"
       ],
-      "opis": "kkv",
-      "tema": "Wordpress",
+      "opis": "testiranje filtera",
+      "tema": "WordPress",
       "tezina": "Mid",
       "broj_prijava": 0
     }

@@ -7,6 +7,7 @@ import Predavaci from './components/Predavaci.jsx'
 import Radionice from './components/Radionice.jsx'
 import { AdminProvider } from './components/AdminContext.jsx'
 import NovaRadionica from "./components/NovaRadionica.jsx";
+import UrediRadionicu from "./components/UrediRadionicu.jsx";
 import './index.css'
 import {
   RouterProvider,
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
           {
             path: '/dodajradionicu',
             element: <NovaRadionica />,
-        },
+          },
+          {
+            path: '/urediradionicu/:id',
+            element: <UrediRadionicu />,
+          },
       ]
   }
 ]);

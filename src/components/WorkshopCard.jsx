@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import SignUp from "./SignUp.jsx";
 import '../App.css'
 import { useAdminContext } from './AdminContext';
+import { useNavigate } from "react-router-dom";
 
 function WorkshopCard({ rez, SignInWork }) {
     const [seen, setSeen] = useState(false)
@@ -19,6 +20,12 @@ function WorkshopCard({ rez, SignInWork }) {
       SignInWork(rez.id, updatedBrojPrijava);
     }
 
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `/urediradionicu/${rez.id}`; 
+    navigate(path);
+    }
+
     return (
       <>
         <div style={{ border: "2px solid #ADD8E6", padding: "10px", borderRadius: "10px", padding: "10px", marginBottom: "10px", marginRight: "15px" }}>
@@ -29,7 +36,7 @@ function WorkshopCard({ rez, SignInWork }) {
             <p>{rez.broj_prijava}</p>
             <Button variant="success" onClick={togglePop}>Prijavi se</Button>
             {seen ? <SignUp toggle={togglePop} sign={handleSignInLocal} name={rez.ime} br={rez.id}/> : null}
-            {isAdmin && <Button variant="info" style={{ marginLeft: "5px" }}>Uredi</Button>}
+            {isAdmin && <Button variant="info" onClick={routeChange} style={{ marginLeft: "5px" }}>Uredi</Button>}
         </div>
       </>
     )

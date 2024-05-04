@@ -21,16 +21,15 @@ function WorkshopCard({ rez, SignInWork }) {
 
     return (
       <>
-        <div>
+        <div style={{ border: "2px solid #ADD8E6", padding: "10px", borderRadius: "10px", padding: "10px", marginBottom: "10px", marginRight: "15px" }}>
             <h3>{rez.ime}</h3>
-            <p>{rez.id}</p>
-            <p>Datum: {rez.datum}</p>
+            <p>Datum: {new Date(rez.datum).toLocaleDateString('en-GB')}</p>
             <p>Predavač: {rez.predavac}</p>
             <p>Opis: {rez.opis}</p>
             <p>{rez.broj_prijava}</p>
             <Button variant="success" onClick={togglePop}>Prijavi se</Button>
             {seen ? <SignUp toggle={togglePop} sign={handleSignInLocal} name={rez.ime} br={rez.id}/> : null}
-            {isAdmin && <Button variant="info">Uredi</Button>}
+            {isAdmin && <Button variant="info" style={{ marginLeft: "5px" }}>Uredi</Button>}
         </div>
       </>
     )

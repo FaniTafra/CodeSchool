@@ -6,7 +6,91 @@
       "datum": "01.01.2025",
       "predavac": "predavac_1",
       "opis": "Kratki opis radionice 1",
-      "broj_prijava": 33
+      "broj_prijava": 34
+    },
+    {
+      "id": "ana",
+      "ime": "ana",
+      "datum": "2024-05-27T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "anawork",
+      "tema": "",
+      "tezina": "Mid",
+      "broj_prijava": 1
+    },
+    {
+      "id": "aaa",
+      "ime": "aaa",
+      "datum": "2024-05-21T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "anawork",
+      "tema": "Express",
+      "tezina": "Mid",
+      "broj_prijava": 0
+    },
+    {
+      "id": "bbbbbbbbbbbbbbbb",
+      "ime": "bbbbbbbbbbbbbbbb",
+      "datum": "2024-05-15T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "aaa",
+      "tema": "",
+      "tezina": "",
+      "broj_prijava": 0
+    },
+    {
+      "id": "Fani Tafra",
+      "ime": "Fani Tafra",
+      "datum": "2024-05-07T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "anawork",
+      "tema": "",
+      "tezina": "",
+      "broj_prijava": 0
+    },
+    {
+      "id": "Fani Tafra",
+      "ime": "Fani Tafra",
+      "datum": "2024-05-14T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "aaaaaaaa",
+      "tema": "",
+      "tezina": "",
+      "broj_prijava": 0
+    },
+    {
+      "id": "aaaa",
+      "ime": "aaaa",
+      "datum": "2024-05-14T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "lalalalala",
+      "tema": "",
+      "tezina": "",
+      "broj_prijava": 0
+    },
+    {
+      "id": "ana",
+      "ime": "ana",
+      "datum": "2024-05-15T22:00:00.000Z",
+      "predavac": [
+        "Predavac 1"
+      ],
+      "opis": "anawork",
+      "tema": "",
+      "tezina": "",
+      "broj_prijava": 0
     }
   ],
   "predavaci": [

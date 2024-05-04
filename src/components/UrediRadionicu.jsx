@@ -83,7 +83,7 @@ function UrediRadionicu() {
                 <option value="React">React</option>
                 <option value="Express">Express</option>
                 <option value="PHP">PHP</option>
-                <option value="Wordpress">Wordpress</option>
+                <option value="WordPress">Wordpress</option>
             </select>
             </label>
         </div>

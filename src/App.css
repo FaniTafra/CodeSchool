@@ -144,3 +144,10 @@ label {
   color: #ffffff;
   cursor: not-allowed;
   }
+
+  .spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }

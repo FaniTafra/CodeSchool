@@ -6,6 +6,7 @@ import Administracija from './components/Administracija.jsx'
 import Predavaci from './components/Predavaci.jsx'
 import Radionice from './components/Radionice.jsx'
 import { AdminProvider } from './components/AdminContext.jsx'
+import NovaRadionica from "./components/NovaRadionica.jsx";
 import './index.css'
 import {
   RouterProvider,
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
               path: '/administracija',
               element: <Administracija />,
           },
+          {
+            path: '/dodajradionicu',
+            element: <NovaRadionica />,
+        },
       ]
   }
 ]);

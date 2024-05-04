@@ -2,11 +2,16 @@ import { useState, useEffect } from "react";
 import Checkbox from './Checkbox.jsx'
 import axios from "axios"
 import WorkshopCard from "./WorkshopCard.jsx";
+import { useAdminContext } from './AdminContext';
+import Button from 'react-bootstrap/Button';
+import NovaRadionica from "./NovaRadionica.jsx";
+import { useNavigate } from "react-router-dom";
 
 function Radionice() {
   const themes = ["React", "Express", "PHP", "WordPress"];
   const levels = ["Junior", "Mid", "Senior"];
   const [radionice, postaviRadionice] = useState([])
+  const {isAdmin} = useAdminContext()
 
   const [checkedThemes, setCheckedThemes] = useState(
     new Array(themes.length).fill(false)
@@ -44,28 +49,41 @@ function Radionice() {
       });
   };
 
+  let navigate = useNavigate(); 
+  const routeChange = () =>{ 
+    let path = `/dodajradionicu`; 
+    navigate(path);
+  }
+
 
   return (
     <>
-      <Checkbox
-        title="Teme"
-        category={themes}
-        checkedItems={checkedThemes}
-        handleOnChange={handleThemeOnChange}
-      />
-      <div style={{ marginTop: "20px" }}>
-      <Checkbox
-        title="Težina"
-        category={levels}
-        checkedItems={checkedLevels}
-        handleOnChange={handleLevelOnChange}
-      />
+    <div style={{ display: "flex" }}>
+      <div style={{ marginRight: "20px" }}>
+        <Checkbox
+          title="Teme"
+          category={themes}
+          checkedItems={checkedThemes}
+          handleOnChange={handleThemeOnChange}
+        />
+        <div style={{ marginTop: "20px" }}>
+        <Checkbox
+          title="Težina"
+          category={levels}
+          checkedItems={checkedLevels}
+          handleOnChange={handleLevelOnChange}
+        />
+        </div>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+          {radionice.map(r => (
+            <WorkshopCard key={r.id} rez={r} SignInWork={SignIn}/>
+          ))}
       </div>
       <div>
-        {radionice.map(r => (
-          <WorkshopCard key={r.id} rez={r} SignInWork={SignIn}/>
-        ))}
+          {isAdmin && <Button variant="info" onClick={routeChange}>Dodaj novu radionicu</Button>}
       </div>
+    </div>
     </>
   )
 }

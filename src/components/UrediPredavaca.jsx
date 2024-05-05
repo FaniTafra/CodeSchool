@@ -95,7 +95,7 @@ function UrediPredavaca() {
         </div>
         <div className="form-group">
             <label>Organizacija</label>
-            <select name="predavac" value={speaker.organizacija} onChange={handleChange}>
+            <select name="organizacija" value={speaker.organizacija} onChange={handleChange}>
                 {organizacije.map((o, index) => (
                     <option key={index} value={o}>{o}</option>
                 ))}

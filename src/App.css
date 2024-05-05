@@ -151,3 +151,50 @@ label {
   left: 50%;
   transform: translate(-50%, -50%);
   }
+
+  .menu {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    width: 100vw;
+    height: 50px; 
+    background-color: #f0f0f0; 
+    position: fixed; 
+    top: 70px; 
+    left: 0;
+  }
+  
+  .option {
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .selected {
+    font-weight: bold; 
+  }
+
+  .data-container {
+    top: 150px; 
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: 0 auto;
+    position: fixed; 
+  }
+  
+  .data-item {
+    width: 90%;
+    display: flex;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    height: 50px; 
+    justify-content: space-around;
+  }
+
+  .data-item div {
+    width: 45%;
+    text-align: center;
+  }

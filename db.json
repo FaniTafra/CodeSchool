@@ -37,36 +37,6 @@
       "tema": "Express",
       "tezina": "Mid",
       "broj_prijava": 0
-    },
-    {
-      "id": "test",
-      "ime": "test",
-      "datum": "2024-05-06T22:00:00.000Z",
-      "predavac": "",
-      "opis": "lalalalala",
-      "tema": "React",
-      "tezina": "Junior",
-      "broj_prijava": 0
-    },
-    {
-      "id": "test2",
-      "ime": "test2",
-      "datum": "2024-05-08T22:00:00.000Z",
-      "predavac": "Predavac 1",
-      "opis": "iii",
-      "tema": "React",
-      "tezina": "Junior",
-      "broj_prijava": 1
-    },
-    {
-      "id": "tetststts",
-      "ime": "tetststts",
-      "datum": "2024-05-09T22:00:00.000Z",
-      "predavac": "Slaven",
-      "opis": "Uvod u Express",
-      "tema": "PHP",
-      "tezina": "Mid",
-      "broj_prijava": 1
     }
   ],
   "predavaci": [
@@ -74,7 +44,7 @@
       "id": "predavac_1",
       "ime": "Predavac 1",
       "biografija": "Biografija predavaca 1",
-      "organizacija": "organizacija_1",
+      "organizacija": "Organizacija 1",
       "teme": [
         "React",
         "Express"
@@ -84,18 +54,19 @@
       "id": "Slaven",
       "ime": "Slaven",
       "biografija": "lorem ipsum",
-      "organizacija": "Organizacija 1",
+      "organizacija": "Organizacija 2",
       "teme": [
-        "PHP"
+        "PHP",
+        "WordPress"
       ]
     },
     {
-      "id": "Zdravko",
-      "ime": "Zdravko",
-      "biografija": "profesor",
+      "id": "Mirko",
+      "ime": "Mirko",
+      "biografija": "lorem ipsum",
       "organizacija": "Organizacija 1",
       "teme": [
-        "PHP",
+        "Express",
         "WordPress"
       ]
     }
@@ -108,6 +79,19 @@
       "radionice": [
         "radionica_1"
       ]
+    },
+    {
+      "id": "organizacija_2",
+      "ime": "Organizacija 2",
+      "opis": "Opis organizacije 2",
+      "radionice": [
+        "radionica_1"
+      ]
+    },
+    {
+      "id": "Organizacija 3",
+      "ime": "Organizacija 3",
+      "opis": "lorem ipsum"
     }
   ],
   "tezine": [

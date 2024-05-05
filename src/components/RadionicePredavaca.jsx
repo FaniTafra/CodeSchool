@@ -7,13 +7,16 @@ import Button from 'react-bootstrap/Button';
 import NovaRadionica from "./NovaRadionica.jsx";
 import { useNavigate } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
+import { useParams } from "react-router-dom";
 
-function Radionice() {
+function RadionicePredavaca() {
   const themes = ["React", "Express", "PHP", "WordPress"];
   const levels = ["Junior", "Mid", "Senior"];
   const [radionice, postaviRadionice] = useState([])
   const {isAdmin} = useAdminContext()
   const [isLoading, setIsLoading] = useState(false);
+  const { ime } = useParams(); 
+  const decodedIme = decodeURIComponent(ime);
 
   const [checkedThemes, setCheckedThemes] = useState(
     new Array(themes.length).fill(false)
@@ -41,7 +44,7 @@ function Radionice() {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const res = await axios.get("http://localhost:3001/radionice/")
+        const res = await axios.get(`http://localhost:3001/radionice?predavac=${decodedIme}`)
         let filteredRadionice = res.data;
 
         if (checkedThemes.some((theme, index) => theme && !checkedLevels[index])) {
@@ -69,7 +72,7 @@ function Radionice() {
     }
 
     fetchData();
-  }, [checkedThemes, checkedLevels]);
+  }, [ime, checkedThemes, checkedLevels]);
 
   const SignIn = (id, updatedBrojPrijava) => {
     axios.patch(`http://localhost:3001/radionice/${id}`, { broj_prijava: updatedBrojPrijava })
@@ -124,4 +127,4 @@ function Radionice() {
   )
 }
 
-export default Radionice
+export default RadionicePredavaca

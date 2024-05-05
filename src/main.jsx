@@ -13,6 +13,8 @@ import {
   RouterProvider,
   createBrowserRouter
 } from 'react-router-dom'
+import RadionicePredavaca from './components/RadionicePredavaca.jsx';
+import NoviPredavac from './components/NoviPredavac.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
           {
             path: '/urediradionicu/:id',
             element: <UrediRadionicu />,
+          },
+          {
+            path: '/radionice/:ime',
+            element: <RadionicePredavaca />,
+          },
+          {
+            path: '/dodajpredavaca',
+            element: <NoviPredavac />,
           },
       ]
   }

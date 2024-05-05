@@ -12,6 +12,7 @@ function NovaRadionica() {
     const [theme, setTheme] = useState("React");
     const [level, setLevel] = useState("Junior");
     const [speaker, setSpeaker] = useState([]);
+    const [predavaczaevent, postaviPredavaczaevent] = useState("");
     const [error, setError] = useState(false)
     const navigate = useNavigate();
 
@@ -40,7 +41,11 @@ function NovaRadionica() {
         axios
             .get("http://localhost:3001/predavaci/")
             .then(res => {
-                setSpeaker(res.data.map(predavac => predavac.ime));
+                const speakers = res.data.map(predavac => predavac.ime);
+                setSpeaker(speakers);
+                if (speakers.length > 0) {
+                postaviPredavaczaevent(speakers[0]); 
+            }
             })
     }, []);
 
@@ -49,7 +54,7 @@ function NovaRadionica() {
             "id": name,
             "ime": name,
             "datum": date,
-            "predavac": speaker,
+            "predavac": predavaczaevent,
             "opis": about,
             "tema": theme,
             "tezina": level,
@@ -98,7 +103,7 @@ function NovaRadionica() {
             <div className="form-group">
                 <label> 
                     Predavač
-                <select value={speaker} onChange={(e) => setSpeaker(e.target.value)}>
+                <select value={predavaczaevent} onChange={(e) => postaviPredavaczaevent(e.target.value)}>
                     {speaker.map((sp, index) => (
                     <option key={index} value={sp}>{sp}</option>
                     ))}

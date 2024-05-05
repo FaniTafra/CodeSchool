@@ -52,7 +52,8 @@ function UrediPredavaca() {
     };
 
     const handleSubmit = () => {
-        const updatedSpeaker = { ...speaker, teme: checkedThemes.map((checked, index) => checked ? themesAll[index] : null) };
+        const updatedThemes = themesAll.filter((theme, index) => checkedThemes[index]);
+        const updatedSpeaker = { ...speaker, teme: updatedThemes };
         axios.patch(`http://localhost:3001/predavaci/${id}`, updatedSpeaker)
         .then(res => console.log(res.data))
         handleBack()

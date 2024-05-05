@@ -21,7 +21,7 @@ function Speakers({ rez }) {
             <h3>{rez.ime}</h3>
             <p>Bio: {rez.biografija}</p>
             <p>Organizacija: {rez.organizacija}</p>
-            <p>Teme: {rez.teme.filter(theme => theme).join(", ")}</p>
+            <p>Teme: {rez.teme.filter(theme => theme !== null).join(", ")}</p>
             <Button variant="success" onClick={() => navigate(`/radionice/${encodeURIComponent(rez.ime)}`)}>Pregledaj radionice</Button>
             {isAdmin && <Button variant="info" onClick={routeChange} style={{ marginLeft: "5px" }}>Uredi</Button>}
         </div>

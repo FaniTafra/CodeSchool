@@ -30,9 +30,8 @@ function Predavaci() {
   };
 
   const handleOrganisationOnChange = (position) => {
-    const updatedCheckedState = checkedOrganisation.map((item, index) =>
-      index === position ? !item : item
-    );
+    const updatedCheckedState = [...checkedOrganisation];
+    updatedCheckedState[position] = !updatedCheckedState[position];
     setCheckedOrganisation(updatedCheckedState);
   };
 

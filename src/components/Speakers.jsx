@@ -7,7 +7,6 @@ import axios from "axios"
 
 function Speakers({ rez }) {
     const {isAdmin} = useAdminContext()
-    const [workshops, setWorkshops] = useState([]);
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 

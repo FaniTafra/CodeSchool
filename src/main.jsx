@@ -16,6 +16,7 @@ import {
 import RadionicePredavaca from './components/RadionicePredavaca.jsx';
 import NoviPredavac from './components/NoviPredavac.jsx';
 import UrediPredavaca from './components/UrediPredavaca.jsx';
+import NovaOrganizacija from './components/NovaOrganizacija.jsx';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
           {
             path: '/uredipredavaca/:id',
             element: <UrediPredavaca />,
+          },
+          {
+            path: '/dodajorganizaciju',
+            element: <NovaOrganizacija />,
           },
       ]
   }

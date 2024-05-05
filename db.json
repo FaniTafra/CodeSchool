@@ -81,24 +81,22 @@
       ]
     },
     {
-      "id": "Zdravko",
-      "ime": "Zdravko",
-      "biografija": "profesor",
-      "organizacija": "Organizacija 1",
-      "teme": [
-        "React",
-        "Express",
-        null,
-        null
-      ]
-    },
-    {
       "id": "Slaven",
       "ime": "Slaven",
       "biografija": "lorem ipsum",
       "organizacija": "Organizacija 1",
       "teme": [
         "PHP"
+      ]
+    },
+    {
+      "id": "Zdravko",
+      "ime": "Zdravko",
+      "biografija": "profesor",
+      "organizacija": "Organizacija 1",
+      "teme": [
+        "PHP",
+        "WordPress"
       ]
     }
   ],

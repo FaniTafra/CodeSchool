@@ -11,21 +11,9 @@ function Speakers({ rez }) {
 
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
-    let path = `/urediradionicu/${rez.id}`; 
+    let path = `/uredipredavaca/${rez.id}`; 
     navigate(path);
     }
-
-    useEffect(() => {
-        axios
-            .get(`http://localhost:3001/predavaci/${rez.id}/radionice`)
-            .then(res => {
-                setWorkshops(res.data);
-            })
-            .catch(error => {
-                console.error("Error fetching workshops:", error);
-            });
-    }, [rez.id]);
-
 
     return (
       <>
@@ -33,7 +21,7 @@ function Speakers({ rez }) {
             <h3>{rez.ime}</h3>
             <p>Bio: {rez.biografija}</p>
             <p>Organizacija: {rez.organizacija}</p>
-            <p>Teme: {rez.teme.join(', ')}</p>
+            <p>Teme: {rez.teme.filter(theme => theme).join(", ")}</p>
             <Button variant="success" onClick={() => navigate(`/radionice/${encodeURIComponent(rez.ime)}`)}>Pregledaj radionice</Button>
             {isAdmin && <Button variant="info" onClick={routeChange} style={{ marginLeft: "5px" }}>Uredi</Button>}
         </div>

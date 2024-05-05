@@ -15,6 +15,7 @@ import {
 } from 'react-router-dom'
 import RadionicePredavaca from './components/RadionicePredavaca.jsx';
 import NoviPredavac from './components/NoviPredavac.jsx';
+import UrediPredavaca from './components/UrediPredavaca.jsx';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
           {
             path: '/dodajpredavaca',
             element: <NoviPredavac />,
+          },
+          {
+            path: '/uredipredavaca/:id',
+            element: <UrediPredavaca />,
           },
       ]
   }

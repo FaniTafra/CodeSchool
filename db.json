@@ -56,7 +56,17 @@
       "opis": "iii",
       "tema": "React",
       "tezina": "Junior",
-      "broj_prijava": 0
+      "broj_prijava": 1
+    },
+    {
+      "id": "tetststts",
+      "ime": "tetststts",
+      "datum": "2024-05-09T22:00:00.000Z",
+      "predavac": "Slaven",
+      "opis": "Uvod u Express",
+      "tema": "PHP",
+      "tezina": "Mid",
+      "broj_prijava": 1
     }
   ],
   "predavaci": [
@@ -71,24 +81,27 @@
       ]
     },
     {
-      "id": "predavac_2",
-      "ime": "Predavac 2",
-      "biografija": "Biografija predavaca 2",
-      "organizacija": "organizacija_1",
+      "id": "Zdravko",
+      "ime": "Zdravko",
+      "biografija": "profesor",
+      "organizacija": "Organizacija 1",
       "teme": [
         "React",
-        "Express"
+        "Express",
+        null,
+        null
       ]
     },
     {
       "id": "Slaven",
       "ime": "Slaven",
-      "biografija": "profesor",
+      "biografija": "lorem ipsum",
       "organizacija": "Organizacija 1",
       "teme": [
-        "React",
+        null,
+        "Express",
         "PHP",
-        "WordPress"
+        null
       ]
     }
   ],

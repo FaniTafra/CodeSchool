@@ -12,6 +12,7 @@ function Predavaci() {
   const [predavaci, postaviPredavace] = useState([]);
   const [organizacije, postaviOrganizacije] = useState([])
   const {isAdmin} = useAdminContext()
+  const [isLoading, setIsLoading] = useState(false);
 
   const [checkedThemes, setCheckedThemes] = useState(
     new Array(themes.length).fill(false)
@@ -36,9 +37,40 @@ function Predavaci() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/predavaci/")
-      .then(res => postaviPredavace(res.data));
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const res = await axios.get("http://localhost:3001/predavaci/")
+        let filteredPredavaci = res.data;
+  
+        if (checkedThemes.some((theme, index) => theme && !checkedOrganisation[index])) {
+          const selectedThemes = themes.filter((theme, index) => checkedThemes[index]);
+          filteredPredavaci = filteredPredavaci.filter(predavac => predavac.teme.some(theme => selectedThemes.includes(theme)));
+        } else if (checkedOrganisation.some((organisation, index) => organisation && !checkedThemes[index])) {
+          const selectedOrganisations = organizacije.filter((organisation, index) => checkedOrganisation[index]);
+          filteredPredavaci = filteredPredavaci.filter(predavac => selectedOrganisations.includes(predavac.organizacija));
+        } else if (checkedThemes.some(theme => theme) && checkedOrganisation.some(organisation => organisation)) {
+          const selectedThemes = themes.filter((theme, index) => checkedThemes[index]);
+          const selectedOrganisations = organizacije.filter((organisation, index) => checkedOrganisation[index]);
+          filteredPredavaci = filteredPredavaci.filter(predavac =>
+            predavac.teme.some(theme => selectedThemes.includes(theme)) && selectedOrganisations.includes(predavac.organizacija)
+          );
+        }
+  
+        postaviPredavace(filteredPredavaci);
+      } catch (error) {
+        console.error("Error:", error);
+      } finally {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 250);
+      }
+    }
+  
+    fetchData();
+  }, [checkedThemes, checkedOrganisation]);
+
+  useEffect(() => {
     axios
       .get("http://localhost:3001/organizacije/")
       .then(res => {
@@ -55,6 +87,11 @@ function Predavaci() {
 
   return (
     <>
+    {isLoading ? ( 
+        <div className="spinner-container">
+          <Spinner animation="border" />
+        </div>
+      ) : (
     <div style={{ display: "flex" }}>
       <div style={{ marginRight: "20px" }}>
         <Checkbox
@@ -81,6 +118,7 @@ function Predavaci() {
             {isAdmin && <Button variant="info" onClick={routeChange}>Dodaj novog predavača</Button>}
       </div>
     </div>
+    )}
     </>
   )
 }

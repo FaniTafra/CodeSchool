@@ -98,10 +98,7 @@
       "biografija": "lorem ipsum",
       "organizacija": "Organizacija 1",
       "teme": [
-        null,
-        "Express",
-        "PHP",
-        null
+        "PHP"
       ]
     }
   ],
